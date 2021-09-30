@@ -7,21 +7,16 @@ const users = require('./routes/users');
 //Connecting  to Database using Mongoose
 
 //Creating an URI to deploy with Heroku
+// Mongodb Connection for Heroku deployment.
+//Locally we can only use mongoose.connect('mongodb://localhost:27017/crudder');
 
 let MONGODB_URI = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost",
     db, 
     users;
 
-// Mongodb Connection for Heroku deployment.
-//Locally we can only use mongoose.connect('mongodb://localhost:27017/crudder');
-
-mongoose.connect('MONGODB_URI', function(err, database){
-    if(err) throw err;
-    db = database;
-    users = db.collection('users');
-}
+mongoose.connect('MONGODB_URI');
+  
              
-
 const db = mongoose.connection;
 
 db.on('connected', ()=>{
