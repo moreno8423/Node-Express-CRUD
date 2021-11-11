@@ -7,7 +7,7 @@ const users = require('./routes/users');
 //Connecting  to Database using Mongoose
 
 //mongoose.connect('mongodb://localhost:27017/crudder'); While using local MongoDB Port on your device
-mongodb+srv://user1:987654321@cluster0.vilnc.mongodb.net/crudder?retryWrites=true&w=majority // MongoDB Atlas Cluster
+mongoose.connect('mongodb+srv://user1:987654321@cluster0.vilnc.mongodb.net/crudder?retryWrites=true&w=majority'); //Conecting to MongoDB Atlas Cluster
              
 const db = mongoose.connection;
 
